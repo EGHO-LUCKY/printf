@@ -25,8 +25,10 @@ int _printf(const char *format, ...)
 			i++;
 			continue;
 		}
+		i++;
 		switch (*++p)
 		{
+			
 			case 'c':
 				cval = va_arg(ap, int);
 				write(1, &cval, 1);
@@ -44,10 +46,9 @@ int _printf(const char *format, ...)
 				i++;
 				break;
 			default:
-				i++;
 				break;
 		}
 	}
 	va_end(ap);
-	return (1);
+	return (i);
 }
