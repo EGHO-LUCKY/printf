@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 		if (*p != '%')
 		{
 			write(1, p, 1);
-			i++;
+			++i;
 			continue;
 		}
 		switch (*++p)
@@ -30,18 +30,18 @@ int _printf(const char *format, ...)
 			case 'c':
 				cval = va_arg(ap, int);
 				write(1, &cval, 1);
-				i++;
+				++i;
 				break;
 			case 's':
 				for (sval = va_arg(ap, char *); *sval; sval++)
 				{
 					write(1, sval, 1);
-					i++;
+					++i;
 				}
 				break;
 			case '%':
 				write(1, p, 1);
-				i++;
+				++i;
 				break;
 			default:
 				break;
