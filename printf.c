@@ -47,10 +47,10 @@ int _printf(const char *format, ...)
 				{
 					_putchar(*sval);
 				}
-				i += _strlen(sval);
+				i++;
 				break;
 			case '%':
-				_putchar('%');
+				_putchar(*p);
 				i++;
 				break;
 			case 'i':
@@ -101,7 +101,7 @@ char *_strrev(char *str)
 
 	if (!str)
 		return (NULL);
-	while (*str)
+	while (*str != '\0')
 	{
 		len++;
 	}
@@ -155,7 +155,7 @@ int _strlen(char *s)
 {
 	int i;
 
-	for (i = 0; *s; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
 	}
 	return (i);
