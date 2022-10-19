@@ -5,7 +5,6 @@
 
 int _putchar(char c);
 char *convert(int num, char *buffer, int base);
-int _strlen(char *s);
 char *_strrev(char *str);
 
 /**
@@ -35,7 +34,6 @@ int _printf(const char *format, ...)
 			i++;
 			continue;
 		}
-		i++;
 		switch (*++p)
 		{
 			case 'c':
@@ -61,14 +59,13 @@ int _printf(const char *format, ...)
 				{
 					ival = -ival;
 					_putchar('-');
+					i++;
 				}
 				for (tmp = convert(ival, buffer, 10); *tmp; tmp++)
 				{
 					_putchar(*tmp);
+					i++;
 				}
-				i += _strlen(tmp);
-			default:
-				break;
 		}
 	}
 	va_end(ap);
@@ -97,14 +94,15 @@ int _putchar(char c)
 
 char *_strrev(char *str)
 {
-	int i, len = 0;
+	int i = 0, len = 0;
 	char c;
 
 	if (!str)
 		return (NULL);
-	while (*str != '\0')
+	while (str[i] != '\0')
 	{
 		len++;
+		i++;
 	}
 
 	for (i = 0; i < (len / 2); i++)
@@ -143,21 +141,4 @@ char *convert(int num, char *buffer, int base)
 	buffer[i] = '\0';
 	_strrev(buffer);
 	return (buffer);
-}
-
-/**
- * _strlen - a function to derive length of an input string
- * @s: a string
- *
- * Return: the length of string
- */
-
-int _strlen(char *s)
-{
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-	}
-	return (i);
 }
