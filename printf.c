@@ -6,6 +6,7 @@
 int _putchar(char c);
 char *convert(int num, char *buffer, int base);
 int _strlen(char *s);
+char *_strrev(char *str);
 
 /**
  * _printf - produces output according to a format
@@ -46,8 +47,8 @@ int _printf(const char *format, ...)
 				for (sval = va_arg(ap, char *); *sval; sval++)
 				{
 					_putchar(*sval);
+					i++;
 				}
-				i++;
 				break;
 			case '%':
 				_putchar(*p);
